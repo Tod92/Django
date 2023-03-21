@@ -12,4 +12,4 @@ def listings(request):
     return HttpResponse('<h1>Listings</h1> <p>ici une liste</p>')
 
 def contact(request):
-    return HttpResponse('<h1>Nous contacter</h1> <p>voici mon 06</p>')
+    return HttpResponse('<h1>Nous contacter</h1> <p>voici mon 06 08..</p>')
