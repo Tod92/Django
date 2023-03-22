@@ -10,17 +10,18 @@ def hello(request):
                   'listings/hello.html',
                   {'first_band': bands[0],
                    'bands': bands})
+def contact(request):
+    return render(request,
+                  'listings/contact.html')
 
 def about(request):
-    return HttpResponse('<h1>À propos</h1> <p>Nous adorons merch !</p>\
-                        <h2>La petite vie de Marie !</h2>')
+    return render(request,
+                  'listings/about.html')
 
 def listings(request):
     listingsLst = Listing.objects.all()
-    liResponse = ''
-    for listing in listingsLst:
-        liResponse += '<li>' + listing.title + '</li>'
-    return HttpResponse(f'<h1>Annonces : </h1> <ul>{liResponse}</ul>')
 
-def contact(request):
-    return HttpResponse('<h1>Nous contacter</h1> <p>voici mon 06 08..</p>')
+    return render(request,
+                  'listings/listings.html',
+                  {'listings' : listingsLst})
+
