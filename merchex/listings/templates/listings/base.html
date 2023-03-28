@@ -1,10 +1,20 @@
 {% load static %}
+<!DOCTYPE html>
 <html>
     <head>
         <title>Merchex</title>
         <link rel="stylesheet" href="{% static 'listings\styles.css' %}" />
     </head>
     <body>
+        <div class="header-wrapper">
+            Header
+            <ul>
+                <li>uno</li>
+                <li>dos</li>
+                <li>tres</li>
+
+            </ul>
+        </div>
 
         {% block content %}{% endblock %}
 

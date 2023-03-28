@@ -4,12 +4,16 @@ from django.shortcuts import render
 from listings.models import Band
 from listings.models import Listing
 
-def hello(request):
+def band_list(request):
     bands = Band.objects.all()
     return render(request,
-                  'listings/hello.html',
-                  {'first_band': bands[0],
-                   'bands': bands})
+                  'listings/band_list.html',
+                  {'bands': bands})
+
+def band_detail(request, band_id):  # notez le paramètre id supplémentaire
+    band = Band.objects.get(id=band_id)
+    return render(request, 'listings/band_detail.html', {'band': band}) # nous passons l'id au modèle
+
 def contact(request):
     return render(request,
                   'listings/contact.html')

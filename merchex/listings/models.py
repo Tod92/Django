@@ -4,6 +4,9 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 # Create your models here.
 class Band(models.Model):
 
+    def __str__(self):
+        return f'{self.name}'
+
     class Genre(models.TextChoices):
         HIP_HOP = 'HH'
         SYNTH_POP = 'SP'
@@ -30,6 +33,7 @@ class Listing(models.Model):
         POSTERS = 'PO'
         MISCELLANEOUS = 'MI'
 
+    band = models.ForeignKey(Band, null=True, on_delete=models.SET_NULL)
     title = models.fields.CharField(max_length=100)
     description = models.fields.CharField(max_length=1000)
     sold = models.fields.BooleanField(default=False)
